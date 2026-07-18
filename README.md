@@ -1,6 +1,6 @@
 # Hi, I'm Haegan McGarry
 
-Trading and investing systems + Python engineering. I build AI agents, financial data tools, and the infrastructure they run on, with a focus on turning messy real-world data into decisions.
+Trading and investing systems + Cloud engineering. I build AI agents, financial data tools, and the infrastructure they run on, with a focus on turning messy real-world data into decisions.
 
 - Focus: quantitative research, LLM agent systems, and automation
 - Daily driver: Python, with modern AI tooling

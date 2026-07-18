@@ -1,16 +1,22 @@
-## Hi there 👋
+# Hi, I'm Haegan McGarry
 
-<!--
-**haeganm/haeganm** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Trading and investing systems + Python engineering. I build AI agents, financial data tools, and the infrastructure they run on, with a focus on turning messy real-world data into decisions.
 
-Here are some ideas to get you started:
+- Focus: quantitative research, LLM agent systems, and automation
+- Daily driver: Python, with modern AI tooling
+- Deploy with: Docker and cloud-based workflows (AWS Cloud Practitioner in progress)
+- Security-minded: on-device processing, OAuth, and careful handling of tokens and secrets
+- Studying: Computer Science @ CSU San Marcos
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## Featured Projects
+- retro-spotify-voice-remote — An offline voice remote for Spotify Premium. Speech is processed entirely on-device with Vosk and Whisper (~150 ms on GPU), using OAuth PKCE with secure local token storage. Zero cloud, zero cost.
+- EatTube — A Chrome extension that spins slots for a YouTube video to watch while you eat.
+- ML-Library---Risk-Position-Sizing — A lightweight C11 ML toolkit for volatility forecasting and position sizing, built for time-series-safe evaluation.
+
+## Tech
+
+Python · JavaScript · C · FastAPI · NumPy · Docker · AWS · Speech Recognition & NLP · Git
+
+## Connect
+
+LinkedIn: https://www.linkedin.com/in/haegan-mcgarry-90aa43392/

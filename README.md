@@ -9,9 +9,9 @@ Trading and investing systems + Cloud engineering. I build AI agents, financial 
 - Studying: Computer Science @ CSU San Marcos
 
 ## Featured Projects
-- retro-spotify-voice-remote — An offline voice remote for Spotify Premium. Speech is processed entirely on-device with Vosk and Whisper (~150 ms on GPU), using OAuth PKCE with secure local token storage. Zero cloud, zero cost.
-- EatTube — A Chrome extension that spins slots for a YouTube video to watch while you eat.
-- ML-Library---Risk-Position-Sizing — A lightweight C11 ML toolkit for volatility forecasting and position sizing, built for time-series-safe evaluation.
+- [Retro](https://github.com/haeganm/retro-spotify-voice-remote) — An offline voice remote for Spotify Premium. Speech is processed entirely on-device with Vosk and Whisper (~150 ms on GPU), using OAuth PKCE with secure local token storage. Zero cloud, zero cost.
+- [EatTube](https://github.com/haeganm/EatTube) — A Chrome extension that spins slots for a YouTube video to watch while you eat.
+- [mlrisk](https://github.com/haeganm/mlrisk) — A lightweight C11 ML toolkit for volatility forecasting and position sizing, built for time-series-safe evaluation. Tested in CI on Windows, macOS, and Linux.
 
 ## Tech
 
@@ -19,4 +19,4 @@ Python · JavaScript · C · FastAPI · NumPy · Docker · AWS · Speech Recogni
 
 ## Connect
 
-LinkedIn: https://www.linkedin.com/in/haegan-mcgarry-90aa43392/
+[LinkedIn](https://www.linkedin.com/in/haegan-mcgarry-90aa43392/)

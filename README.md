@@ -88,11 +88,6 @@ Selected private work (code not public):
 - OpenAI — *Agents and Workflows* and *Applied AI Foundations*
 - AWS Cloud Practitioner (in progress)
 
-## GitHub Stats
-
-![Haegan's GitHub stats](https://github-readme-stats.vercel.app/api?username=haeganm&show_icons=true&hide_border=true&rank_icon=github)
-![Top languages](https://github-readme-stats.vercel.app/api/top-langs/?username=haeganm&layout=compact&hide_border=true)
-
 ## Connect
 
 Looking for opportunities with quant desks, hedge funds, and cloud/AI engineering teams. Reach me on [LinkedIn](https://www.linkedin.com/in/haegan-mcgarry-90aa43392) or at [haeganm@gmail.com](mailto:haeganm@gmail.com).

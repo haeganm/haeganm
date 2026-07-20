@@ -11,7 +11,7 @@ Trading and investing systems + Cloud engineering. I build AI agents, financial 
 ## Featured Projects
 - [Retro](https://github.com/haeganm/retro-spotify-voice-remote) — An offline voice remote for Spotify Premium. Speech is processed entirely on-device with Vosk and Whisper (~150 ms on GPU), using OAuth PKCE with secure local token storage. Zero cloud, zero cost.
 - [EatTube](https://github.com/haeganm/EatTube) — A Chrome extension that spins slots for a YouTube video to watch while you eat.
-- [mlrisk](https://github.com/haeganm/mlrisk) — A lightweight C11 ML toolkit for volatility forecasting and position sizing, built for time-series-safe evaluation. Tested in CI on Windows, macOS, and Linux.
+- [mlrisk](https://github.com/haeganm/mlrisk) — A zero-dependency C11 quant library: GARCH(1,1) and range-based volatility estimators, Kelly/vol-target position sizing, and purged walk-forward evaluation. Sanitizer-clean CI on Windows, macOS, and Linux.
 
 ## Tech
 

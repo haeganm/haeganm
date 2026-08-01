@@ -9,7 +9,7 @@
 
 I build AI systems and the infrastructure they run on, aimed at making capital and markets smarter. Machine learning and applied AI are the center of my work — I design and ship **LLM agent systems** and automation that turn messy real-world data into decisions.
 
-Python is my daily language, I build with modern AI tooling, and I deploy through containerized, cloud-based workflows (**AWS Cloud Practitioner in progress**). I treat security as part of the build, not an afterthought: on-device processing, OAuth, and careful handling of tokens and secrets.
+Python is my daily language, I build with modern AI tooling, and I deploy through containerized, cloud-based workflows (AWS Certified Cloud Practitioner). I treat security as part of the build, not an afterthought: on-device processing, OAuth, and careful handling of tokens and secrets.
 
 I approach quantitative research and trading as an engineering problem: **form a thesis, dig for evidence, stress the downside, and let the data settle it.**
 

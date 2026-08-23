@@ -80,13 +80,13 @@ Selected private work (code not public):
 ## Experience & Education
 
 - **Collaborator / Apprentice — Riffyx Labs Mentorship** (Jun 2025 – Jun 2026): AWS fundamentals, debugging, and Git-based workflows (branches, pull requests); worked alongside Cisco professionals on implementation tasks.
-- **B.S. Computer Science — California State University San Marcos** (2025 – present)
+- **B.S. Computer Science — California State University San Marcos** (2026 – present)
 
 ## Certifications
 
 - Anthropic certified
 - OpenAI — *Agents and Workflows* and *Applied AI Foundations*
-- AWS Cloud Practitioner (in progress)
+- AWS Cloud Practitioner
 
 ## Connect
 

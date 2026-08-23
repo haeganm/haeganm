@@ -5,7 +5,7 @@
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Haegan_McGarry-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/haegan-mcgarry-90aa43392)
 [![Email](https://img.shields.io/badge/Email-haeganm%40gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:haeganm@gmail.com)
 
-## About Me
+## About
 
 I build AI systems and the infrastructure they run on, aimed at making capital and markets smarter. Machine learning and applied AI are the center of my work — I design and ship **LLM agent systems** and automation that turn messy real-world data into decisions.
 
@@ -15,7 +15,7 @@ I approach quantitative research and trading as an engineering problem: **form a
 
 Open to opportunities with quant desks, hedge funds, and cloud/AI engineering teams.
 
-## Tech Stack
+## Stack
 
 **AI & Agents**
 

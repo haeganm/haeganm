@@ -1,4 +1,4 @@
-# Hey, I'm Haegan 👋
+# Haegan M
 
 **AI & Cloud Engineering · Quant Research & Fintech**
 

@@ -61,11 +61,11 @@ Volatility and risk primitives written from scratch in C11: GARCH(1,1) and range
 
 `C11` `GARCH` `walk-forward validation` `GitHub Actions`
 
-### [EatTube](https://github.com/haeganm/EatTube) — slot machine for your watch-while-eating video
+### [Agentic NetOps](https://github.com/haeganm/agentic-netops) — closed-loop AI network remediation on AWS
 
-A Chrome extension that spins slots to pick a YouTube video to watch while you eat. Because deciding is the hardest part of the meal.
+An autonomous platform that heals a VPC when it drifts from declared intent: DETECT → PROVE → MEASURE → GENERATE-REPAIR → APPROVE → EXECUTE → VERIFY. The LLM proposes, deterministic systems dispose — every repair is bounded to converge-to-baseline by a versioned policy gate, routed through fail-closed autonomy tiers (auto-execute behind a veto window, single approval, or two-party maker-checker), and executed under per-incident scoped STS credentials. Every decision lands in a tamper-evident hash-chained ledger anchored out-of-band. **Self-healed a live fault in 191 s with no human touch**; 9/9 fault classes remediate; 155 tests, credential-free CI, adversarially audited five times, $0 idle.
 
-`JavaScript` `Chrome Extensions API`
+`Python` `AWS SAM` `Step Functions` `Bedrock` `DynamoDB` `IAM`
 
 ## Beyond GitHub — systems I've built
 

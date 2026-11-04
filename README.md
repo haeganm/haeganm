@@ -31,6 +31,12 @@ GARCH(1,1), EWMA and range-based volatility, Kelly and vol-target sizing, purged
 
 `C11` `CMake` `ctypes` `cibuildwheel` `GitHub Actions` `PyPI trusted publishing`
 
+### [AsOf](https://github.com/haeganm/AsOf): a market intelligence engine that grades itself
+
+Collects signals from SEC Form 4 insider buys, 8-K events, your own monitors and any local tool, seals each one at the instant it became public, then grades it against SPY at 5, 20 and 60 trading days. Entry is the close of the first session that ended after the filing's acceptance time, DST-aware. Imported history can never reach the scorecard, small samples are withheld rather than shown, and grades are written once and never revised. Runs locally on free, keyless data. 103 offline checks in CI.
+
+`TypeScript` `Next.js` `SQLite` `SEC EDGAR`
+
 ### [Retro](https://github.com/haeganm/retro-spotify-voice-remote): offline voice remote for Spotify
 
 Speech never leaves the machine: Vosk and faster-whisper on the GPU, your own artists and playlists injected into the recognizer vocabulary, OAuth PKCE with tokens stored on device, and a Windows tray app with a one-command installer.

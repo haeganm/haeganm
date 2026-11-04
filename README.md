@@ -69,7 +69,7 @@ In review: [mypy #21926](https://github.com/python/mypy/pull/21926) (report irre
 
 ## Shipped to real users
 
-Five public Roblox games, built with Rojo, Studio automation and git. [Roblox profile](https://www.roblox.com/users/9068682769/profile).
+Four public Roblox games, built with Rojo, Studio automation and git. [Roblox profile](https://www.roblox.com/users/9068682769/profile).
 
 ## Education and certifications
 

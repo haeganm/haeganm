@@ -19,7 +19,7 @@ Python daily. AWS SAM, Step Functions, Lambda, DynamoDB, IAM. C when speed matte
 A serverless platform that heals a VPC when it drifts from declared intent: detect, prove, measure, generate a repair, approve, execute, verify. The LLM proposes and deterministic systems dispose, so control flow runs on config diffs and never on model output. Repairs are bounded to converge-to-baseline by a versioned policy gate, routed through fail-closed autonomy tiers (auto-execute behind a veto window, one approval, or two-party maker-checker), and executed under per-incident scoped STS credentials. Every decision lands in a hash-chained ledger anchored out of band.
 
 - Measured on the live deployment: self-healed a seeded fault in 191 s with no human touch, and all 9 seeded fault classes remediate.
-- 214 tests in credential-free CI, 18 architecture decision records, a security findings register from repeated adversarial audits, $0 idle.
+- 293 tests in credential-free CI, 18 architecture decision records, a security findings register from repeated adversarial audits, $0 idle.
 
 `AWS SAM` `Step Functions` `Lambda` `DynamoDB` `EventBridge` `Cognito` `Bedrock` `IAM` `CloudFront`
 

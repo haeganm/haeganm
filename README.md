@@ -20,6 +20,7 @@ A serverless platform that heals a VPC when it drifts from declared intent: dete
 
 - Measured on the live deployment: self-healed a seeded fault in 191 s with no human touch, and all 9 seeded fault classes remediate.
 - 301 tests in credential-free CI, 18 architecture decision records, a security findings register from repeated adversarial audits, $0 idle.
+- The code is private. I'm happy to demo it or walk through the code, just [email me](mailto:haeganm@gmail.com).
 
 `AWS SAM` `Step Functions` `Lambda` `DynamoDB` `EventBridge` `Cognito` `Bedrock` `IAM` `CloudFront`
 

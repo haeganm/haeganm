@@ -1,93 +1,63 @@
-# Haegan M
+# Haegan McGarry
 
-**AI & Cloud Engineering · Quant Research & Fintech**
+**CS student building cloud systems and measuring them honestly. Looking for a 2026 SWE internship: cloud, infrastructure, security.**
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Haegan_McGarry-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/haegan-mcgarry-90aa43392)
 [![Email](https://img.shields.io/badge/Email-haeganm%40gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:haeganm@gmail.com)
+![AWS CCP](https://img.shields.io/badge/AWS-Certified_Cloud_Practitioner-232F3E?style=flat-square&logo=amazonwebservices&logoColor=white)
 
-## About
+## What I do
 
-I build AI systems and the infrastructure they run on, aimed at making capital and markets smarter. Machine learning and applied AI are the center of my work — I design and ship **LLM agent systems** and automation that turn messy real-world data into decisions.
+I build systems end to end, deploy them on AWS, test them, and write down what the numbers actually say. Every figure below links to the code, the CI run or the merged PR that backs it. If a project did not work, its README says so.
 
-Python is my daily language, I build with modern AI tooling, and I deploy through containerized, cloud-based workflows (AWS Certified Cloud Practitioner). I treat security as part of the build, not an afterthought: on-device processing, OAuth, and careful handling of tokens and secrets.
+Python daily. AWS SAM, Step Functions, Lambda, DynamoDB, IAM. C when speed matters. GitHub Actions for every repo.
 
-I approach quantitative research and trading as an engineering problem: **form a thesis, dig for evidence, stress the downside, and let the data settle it.**
+## Featured
 
-Open to opportunities with quant desks, hedge funds, and cloud/AI engineering teams.
+### [Agentic NetOps](https://github.com/haeganm/agentic-netops): closed-loop network remediation on AWS
 
-## Stack
+A serverless platform that heals a VPC when it drifts from declared intent. DETECT, PROVE, MEASURE, GENERATE-REPAIR, APPROVE, EXECUTE, VERIFY. The LLM proposes, deterministic systems dispose: control flow runs on config diffs, never on model output. Repairs are bounded to converge-to-baseline by a versioned policy gate, routed through fail-closed autonomy tiers (auto-execute behind a veto window, single approval, or two-party maker-checker), and executed under per-incident scoped STS credentials. Every decision lands in a hash-chained ledger anchored out of band.
 
-**AI & Agents**
+Measured live: self-healed a seeded fault in 191 s with no human touch, 9 of 9 fault classes remediate, 155 tests in credential-free CI, 17 architecture decision records, repeated adversarial security audits with the findings register in `docs/SECURITY.md`, $0 idle.
 
-![Claude Code](https://img.shields.io/badge/Claude_Code-D97757?style=flat-square&logo=claude&logoColor=white)
-![Amazon Bedrock](https://img.shields.io/badge/Amazon_Bedrock-232F3E?style=flat-square&logo=amazonwebservices&logoColor=white)
-![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat-square&logo=openai&logoColor=white)
-![Whisper](https://img.shields.io/badge/Whisper-000000?style=flat-square&logo=openai&logoColor=white)
-![Vosk](https://img.shields.io/badge/Vosk-4B8BBE?style=flat-square)
+`AWS SAM` `Step Functions` `Lambda` `DynamoDB` `EventBridge` `Cognito` `Bedrock` `IAM` `CloudFront`
 
-**Languages**
+### [walkforward](https://github.com/haeganm/walkforward): volatility, sizing and purged walk-forward splits, in C11 with a Python front door
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![C](https://img.shields.io/badge/C-A8B9CC?style=flat-square&logo=c&logoColor=black)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+[![PyPI](https://img.shields.io/pypi/v/walkforward?style=flat-square)](https://pypi.org/project/walkforward/) `pip install walkforward`
 
-**Cloud & DevOps**
+GARCH(1,1), EWMA and range-based volatility, Kelly and vol-target sizing, purged walk-forward splits and ridge regression, written from scratch in C11 with a ctypes binding over numpy and pandas. CI runs gcc, clang, macOS, Windows, 32-bit, sanitizers and a fuzz sweep, then checks the C against pandas, numpy, scikit-learn and arch. Wheels for five platforms ship through cibuildwheel and PyPI trusted publishing, no token anywhere. The worked SPY example in the README reports the honest out-of-sample numbers, including the ones that did not help.
 
-![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonwebservices&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
+`C11` `CMake` `ctypes` `cibuildwheel` `GitHub Actions` `PyPI trusted publishing`
 
-**Backend & Data**
+### [Retro](https://github.com/haeganm/retro-spotify-voice-remote): offline voice remote for Spotify
 
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
-![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)
-![pytest](https://img.shields.io/badge/pytest-0A9EDC?style=flat-square&logo=pytest&logoColor=white)
-![OAuth PKCE](https://img.shields.io/badge/OAuth_PKCE-EB5424?style=flat-square&logo=auth0&logoColor=white)
+Speech never leaves the machine: Vosk and faster-whisper on the GPU, your own artists and playlists injected into the recognizer vocabulary, OAuth PKCE with tokens stored on device, a Windows tray app with a one-command installer.
 
-## Featured Projects
+`Python` `Vosk` `faster-whisper` `OAuth PKCE`
 
-### [Retro](https://github.com/haeganm/retro-spotify-voice-remote) — offline voice AI remote for Spotify Premium
+## Open source
 
-A voice remote that runs entirely on-device: speech is processed locally with Vosk and Whisper (~150 ms on GPU), keeping it private and fast. Uses OAuth PKCE with secure on-device token storage, personalized fuzzy matching against your own artists, playlists, and liked songs, and a Windows system-tray UX with a one-command installer. Zero cloud, zero cost.
+Merged upstream, each one a reproduced bug with a failing test first:
 
-`Python` `Vosk` `faster-whisper` `OAuth PKCE` `spotipy`
+| Repo | PR | Fix |
+|---|---|---|
+| statsmodels | [#10229](https://github.com/statsmodels/statsmodels/pull/10229) | Probit log-likelihood, score and Hessian computed in log space so extreme fitted values stop underflowing |
+| nautilus_trader | [#4914](https://github.com/nautechsystems/nautilus_trader/pull/4914) | AroonOscillator lowest-low scan and tie handling |
+| moto | [#10234](https://github.com/getmoto/moto/pull/10234) | SQS raises `PurgeQueueInProgress` on a repeated purge within 60 s, matching AWS |
+| pandas_market_calendars | [#485](https://github.com/rsheftel/pandas_market_calendars/pull/485) | TASE calendar updated for the Monday to Friday trading week |
+| anndata | [#2652](https://github.com/scverse/anndata/pull/2652) | Raise on float index arrays with non-integer values instead of silently truncating |
+| scikit-bio | [#2580](https://github.com/scikit-bio/scikit-bio/pull/2580) | `to_indices` and `to_cigar` on single-segment alignment paths |
+| PyLabRobot | [#1273](https://github.com/PyLabRobot/pylabrobot/pull/1273) | Serialize `Container.no_go_zones` so `copy()` and `deserialize()` keep them |
 
-### [mlrisk](https://github.com/haeganm/mlrisk) — zero-dependency C11 quant library
+Open: [mypy #21926](https://github.com/python/mypy/pull/21926) (error on irrefutable match patterns that make later cases unreachable), [biotite #946](https://github.com/biotite-dev/biotite/pull/946) (CONECT records across insertion codes).
 
-Volatility and risk primitives written from scratch in C11: GARCH(1,1) and range-based volatility estimators, Kelly and vol-target position sizing, and purged/embargoed walk-forward evaluation. Sanitizer-clean CI on Windows, macOS, and Linux.
+## Shipped to real users
 
-`C11` `GARCH` `walk-forward validation` `GitHub Actions`
+Five public Roblox games with live players, persistent saves and paid products, built with Rojo and a git workflow. [Roblox profile](https://www.roblox.com/users/9068682769/profile).
 
-### [Agentic NetOps](https://github.com/haeganm/agentic-netops) — closed-loop AI network remediation on AWS
+## Education and certifications
 
-An autonomous platform that heals a VPC when it drifts from declared intent: DETECT → PROVE → MEASURE → GENERATE-REPAIR → APPROVE → EXECUTE → VERIFY. The LLM proposes, deterministic systems dispose — every repair is bounded to converge-to-baseline by a versioned policy gate, routed through fail-closed autonomy tiers (auto-execute behind a veto window, single approval, or two-party maker-checker), and executed under per-incident scoped STS credentials. Every decision lands in a tamper-evident hash-chained ledger anchored out-of-band. **Self-healed a live fault in 191 s with no human touch**; 9/9 fault classes remediate; 155 tests, credential-free CI, adversarially audited five times, $0 idle.
-
-`Python` `AWS SAM` `Step Functions` `Bedrock` `DynamoDB` `IAM`
-
-## Beyond GitHub — systems I've built
-
-Selected private work (code not public):
-
-**Density** — Autonomous quantitative trading system for prediction markets that prices contracts from probability distributions rather than opinions. Extracts probability densities from external reference markets and trades the gap through a risk layer nothing else in the system can override. Probability model calibrated on 1,076 days of history with 94.9% observed coverage on a 95% interval; the deployed strategy produced a **1.3 Sharpe ratio with an 8.6% max drawdown across 720 live trades**. Includes walk-forward validation, historical fill modeling, a 112-check test suite, crash recovery, watchdog orchestration, a live dashboard, and an LLM review layer.
-
-**Docket** — Multi-tenant AI platform that turns documents into structured, trustworthy data. Organizations define their own extraction schemas and get back exact fields, each with a confidence score and a citation to source text; low-confidence results route to a human. Runs as an event-driven serverless pipeline across **13 AWS services**, from a Cognito-secured API to Bedrock for inference, with tenant isolation built into the data model. Zero idle cost; ships with 49 tests, credential-free CI, and five rounds of security auditing.
-
-**BlotterBrain** — LLM-powered, hedge-fund-style research workflow in Python. A single ticker triggers a multi-agent research team — analysts, bull/bear researchers, research manager, trader, risk analysts, portfolio manager — that produces a full investment memo with debate logs, risk review, and a final buy/hold/sell call. Logs each thesis, benchmarks against SPY, and feeds results into future runs. Backtests produced a **37.8% annualized return with a 71.4% win rate**. (Forked from TradingAgents.)
-
-## Experience & Education
-
-- **Collaborator / Apprentice — Riffyx Labs Mentorship** (Jun 2025 – Jun 2026): AWS fundamentals, debugging, and Git-based workflows (branches, pull requests); worked alongside Cisco professionals on implementation tasks.
-- **B.S. Computer Science — California State University San Marcos** (2026 – present)
-
-## Certifications
-
-- Anthropic certified
-- OpenAI — *Agents and Workflows* and *Applied AI Foundations*
-- AWS Cloud Practitioner
-
-## Connect
-
-Looking for opportunities with quant desks, hedge funds, and cloud/AI engineering teams. Reach me on [LinkedIn](https://www.linkedin.com/in/haegan-mcgarry-90aa43392) or at [haeganm@gmail.com](mailto:haeganm@gmail.com).
+- B.S. Computer Science, California State University San Marcos, 2026 to present
+- AWS Certified Cloud Practitioner
+- Collaborator and apprentice, Riffyx Labs mentorship (Jun 2025 to Jun 2026): AWS fundamentals, debugging and Git workflows alongside Cisco professionals

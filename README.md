@@ -10,7 +10,7 @@
 
 I build systems end to end, deploy them on AWS, test them, and write down what the numbers actually say. Every number on this page comes from a test run, a live measurement or a merged PR you can open. If a project did not work, its README says so in the first paragraph.
 
-Python daily. AWS SAM, Step Functions, Lambda, DynamoDB, IAM. C when speed matters. CI on every repo.
+Python daily. AWS SAM, Step Functions, Lambda, DynamoDB, IAM. Go for distributed systems. C when speed matters. CI on every repo.
 
 ## Featured
 
@@ -23,6 +23,17 @@ A serverless platform that heals a VPC when it drifts from declared intent: dete
 - The code is private. I'm happy to demo it or walk through the code, just [email me](mailto:haeganm@gmail.com).
 
 `AWS SAM` `Step Functions` `Lambda` `DynamoDB` `EventBridge` `Cognito` `Bedrock` `IAM` `CloudFront`
+
+### [holdfast](https://github.com/haeganm/holdfast): edge nodes that keep one aircraft picture through packet loss and partitions
+
+Three Go nodes each take in ADS-B reports for their own coverage area, keep a replica of the shared picture as a last-writer-wins map stamped with a hybrid logical clock, and sync peer to peer by digest anti-entropy over HTTP, so replicas converge however messages are lost, repeated or reordered. A Docker and `tc netem` harness replays a recorded hour of real traffic over Washington DC under loss and partitions. A cloud peer runs the node's own merge code in a Go Lambda on DynamoDB, where conditional writes keep the table a max-register. Predictions were committed before the runs that grade them, and the README grades the failures too.
+
+- On the recorded hour: 1.37 s p95 propagation under 20% loss, with all 60 windows converging. 50% loss is where request/response over TCP breaks (p95 24.8 s, 27 of 60 converged).
+- With one node's clock 4 s fast, a wall-clock map threw away 485 fresh reports. The hybrid clock lost none.
+- Deployed with Terraform for one 10-minute run on AWS: 2.1 s p95 through API Gateway, Lambda and DynamoDB, under half a cent, then torn down.
+- 97 Go tests, fuzzing, a seeded fault simulation, 131 planted bugs the gate has to catch, and Trivy on the images and the Terraform.
+
+`Go` `CRDTs` `Docker` `tc netem` `Lambda` `DynamoDB` `Terraform` `GitHub Actions`
 
 ### [walkforward](https://github.com/haeganm/walkforward): volatility, sizing and purged walk-forward splits in C11, with a Python front door
 
@@ -65,8 +76,9 @@ Merged upstream:
 | anndata | [#2652](https://github.com/scverse/anndata/pull/2652) | Raise on float index arrays with any non-integer value |
 | scikit-bio | [#2580](https://github.com/scikit-bio/scikit-bio/pull/2580) | `to_indices` and `to_cigar` on single-segment alignment paths |
 | PyLabRobot | [#1273](https://github.com/PyLabRobot/pylabrobot/pull/1273) | Serialize `Container.no_go_zones` so `copy()` and `deserialize()` keep them |
+| biotite | [#946](https://github.com/biotite-dev/biotite/pull/946) | `CONECT` records for bonds between residues differing in insertion code |
 
-In review: [mypy #21926](https://github.com/python/mypy/pull/21926) (report irrefutable match patterns that make later cases unreachable) and [biotite #946](https://github.com/biotite-dev/biotite/pull/946) (CONECT records for bonds across insertion codes).
+In review: [mypy #21926](https://github.com/python/mypy/pull/21926) (report irrefutable match patterns that make later cases unreachable).
 
 ## Shipped to real users
 

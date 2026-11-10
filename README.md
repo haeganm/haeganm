@@ -28,19 +28,7 @@ Python daily. AWS SAM, Step Functions, Lambda, DynamoDB and IAM. Go for distribu
 
 A serverless platform that heals a VPC when it drifts from declared intent: detect, prove, measure, generate a repair, approve, execute, verify. The LLM proposes and deterministic systems dispose, so control flow runs on config diffs and never on model output. Repairs pass a versioned policy gate and fail-closed autonomy tiers, run under per-incident scoped STS credentials, and land in a hash-chained audit ledger.
 
-```mermaid
-flowchart LR
-    D[Detect<br/>CloudTrail + EventBridge] --> P[Prove and measure<br/>baseline diff, drift, reachability] --> G[Generate repair<br/>policy gate] --> T{Risk tier}
-    T -->|low| V[Veto window]
-    T -->|medium| A1[One approval]
-    T -->|high| A2[Two approvers]
-    V --> E[Execute<br/>scoped STS]
-    A1 --> E
-    A2 --> E
-    E --> F[Verify<br/>re-diff]
-    F ~~~ Z[ ]:::ghost
-    classDef ghost fill:none,stroke:none,color:transparent;
-```
+<img src="assets/netops-loop.svg" width="840" alt="The incident loop: detect from CloudTrail, prove against the baseline, measure reachability, plan a policy-gated repair, route it by risk tier (low runs after a 60 s veto, medium needs one approval, high needs two), execute with scoped STS credentials, verify by re-diffing. Every decision lands in a hash-chained ledger.">
 
 - Self-healed a seeded fault in 191 s on the live deployment with no human touch. All 9 seeded fault classes remediate.
 - 301 tests in credential-free CI, 18 architecture decision records, a security findings register, $0 idle.
@@ -57,7 +45,7 @@ Three Go nodes each take in ADS-B reports for their own coverage area and keep a
 - Deployed with Terraform for a 10-minute run on AWS: 2.1 s p95 through API Gateway, Lambda and DynamoDB, for under half a cent.
 - 97 Go tests, fuzzing, a seeded fault simulation, 131 planted bugs the gate has to catch, and Trivy on the images and the Terraform.
 
-<p align="center"><img src="assets/holdfast-partition.png" width="620" alt="Per-node lag during a network partition: it grows while node c is cut off and clears 1.2 s after the heal."></p>
+<img src="assets/holdfast-partition.png" width="840" alt="Per-node lag during a network partition: it grows while node c is cut off and clears 1.2 s after the heal.">
 
 <code><img src="assets/icons/go.svg" height="14" align="absmiddle" alt="">&nbsp;Go</code> <code><img src="assets/icons/docker.svg" height="14" align="absmiddle" alt="">&nbsp;Docker</code> <code><img src="assets/icons/linux.svg" height="14" align="absmiddle" alt="">&nbsp;tc&nbsp;netem</code> <code><img src="assets/icons/lambda.svg" height="14" align="absmiddle" alt="">&nbsp;Lambda</code> <code><img src="assets/icons/dynamodb.svg" height="14" align="absmiddle" alt="">&nbsp;DynamoDB</code> <code><img src="assets/icons/apigateway.svg" height="14" align="absmiddle" alt="">&nbsp;API&nbsp;Gateway</code> <code><img src="assets/icons/terraform.svg" height="14" align="absmiddle" alt="">&nbsp;Terraform</code> <code><img src="assets/icons/githubactions.svg" height="14" align="absmiddle" alt="">&nbsp;GitHub&nbsp;Actions</code>
 
@@ -115,5 +103,5 @@ And four public games on Roblox, written in Luau and shipped to real players. [R
 - Collaborator, Riffyx Labs mentorship (Jun 2025 to Jun 2026): AWS and debugging projects, Git pull-request workflows alongside Cisco professionals
 
 <div align="center">
-<sub>The pixel art on this page is drawn in code by <a href="assets/build.py">a short Python script</a>.</sub>
+<sub>The pixel art and the NetOps diagram are drawn in code by <a href="assets/build.py">build.py</a>. The holdfast chart is <a href="assets/holdfast_chart.py">redrawn</a> from that repo's own run data.</sub>
 </div>

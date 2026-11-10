@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Draws this profile's pixel art as SVG. Standard library only.
+"""Draws this profile's pixel art, and its NetOps diagram, as SVG. Standard library only.
 
     python assets/build.py
 
-Each picture is a grid of logical pixels. Same-coloured pixels are merged into
+The pixel art is a grid of logical pixels. Same-coloured pixels are merged into
 rectangles, and the moving parts are separate layers driven by stepped CSS
 keyframes, so nothing here is a bitmap. Seeded, so the output is reproducible.
 """
@@ -390,11 +390,87 @@ def crab():
     body.sprite(0, 0, CRAB_SPECS, {"O": orange, "G": dark, "K": dark, "L": lens})
     down.rect(15, 3, 1, 2, orange)  # right arm at rest
     up.rect(15, 1, 1, 2, orange)  # and waving
-    blink.put(4, 3, lens)
-    blink.put(11, 3, lens)
+    for x in (3, 10):  # eyes shut: the lens empties above a closed lid
+        blink.rect(x, 3, 3, 1, lens)
+        blink.rect(x, 4, 3, 1, dark)
     css = FRAMES2 + ".blink{opacity:0;animation:blink 5s steps(1) infinite}@keyframes blink{46%{opacity:1}49%{opacity:0}}"
     parts = body.svg() + down.svg('class="a"') + up.svg('class="b"') + blink.svg('class="blink"')
     return doc(16, 12, 3, "A small orange crab wearing glasses, waving.", css, parts)
+
+
+NETOPS = (("Detect", "CloudTrail"), ("Prove", "vs baseline"), ("Measure", "reachability"), ("Repair", "policy gate"))
+TIERS = (("LOW", "60 s veto", "#7fd6b0"), ("MED", "1 approval", "#f6b077"), ("HIGH", "2 approvers", "#f58ea8"))
+NETOPS_CSS = (
+    "text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif;"
+    "text-anchor:middle}.t{font-size:12px;font-weight:600;fill:#fbeed8}.c{font-size:10px;fill:#c9b3d6}"
+    ".k{font-size:9px;font-weight:700;letter-spacing:.06em;text-anchor:start}"
+    ".a{font-size:10px;fill:#fbeed8;text-anchor:start}.box{fill:#3d2c48;stroke:#5d4569}"
+    ".ln{fill:none;stroke:#f6b077;stroke-width:1.5;stroke-linejoin:round}"
+    ".tick{stroke:#5d4569;stroke-dasharray:2 3}"
+)
+
+
+def netops():
+    """Agentic NetOps' incident loop, as a card in the page's colours."""
+    W, H, Y, R = 840, 160, 62, 120  # Y: the row's centre line, R: the ledger rail's top
+    bw, bh, dia, sw = 86, 46, 26, 118  # box size, diamond half-diagonal, approval stack width
+    out, ticks = [], []
+
+    def box(x, title, caption):
+        out.append(f'<rect x="{x}" y="{Y - bh // 2}" width="{bw}" height="{bh}" rx="6" class="box"/>'
+                   f'<text x="{x + bw // 2}" y="{Y - 3}" class="t">{title}</text>'
+                   f'<text x="{x + bw // 2}" y="{Y + 13}" class="c">{caption}</text>')
+        ticks.append((x + bw // 2, Y + bh // 2))
+        return x + bw
+
+    def arrow(d):
+        out.append(f'<path d="{d}" class="ln" marker-end="url(#ah)"/>')
+
+    x = 18
+    for title, caption in NETOPS:
+        if x > 18:
+            arrow(f"M{x + 1} {Y}H{x + 13}")
+            x += 14
+        x = box(x, title, caption)
+    arrow(f"M{x + 1} {Y}H{x + 13}")
+    cx = x + 14 + dia
+    out.append(f'<path d="M{cx - dia} {Y}L{cx} {Y - dia}L{cx + dia} {Y}L{cx} {Y + dia}z" '
+               'fill="#3d2c48" stroke="#b79cf0"/>'
+               f'<text x="{cx}" y="{Y - 2}" class="c">risk</text><text x="{cx}" y="{Y + 10}" class="c">tier</text>')
+    ticks.append((cx, Y + dia))
+    x, stack = cx + dia, cx + dia + 24
+    for k, (tier, action, colour) in enumerate(TIERS):
+        cy = Y + (k - 1) * 28
+        arrow(f"M{x + 1} {Y}H{x + 12}V{cy}H{stack - 1}")
+        out.append(f'<rect x="{stack}" y="{cy - 11}" width="{sw}" height="22" rx="11" fill="#33263d" stroke="{colour}"/>'
+                   f'<text x="{stack + 10}" y="{cy + 3.5}" class="k" fill="{colour}">{tier}</text>'
+                   f'<text x="{stack + 44}" y="{cy + 3.5}" class="a">{action}</text>')
+        out.append(f'<path d="M{stack + sw + 1} {cy}H{stack + sw + 12}V{Y}" class="ln"/>')
+    ticks.append((stack + sw // 2, Y + 39))
+    x = stack + sw + 12
+    arrow(f"M{x} {Y}H{x + 11}")
+    x = box(x + 12, "Execute", "scoped STS")
+    arrow(f"M{x + 1} {Y}H{x + 13}")
+    x = box(x + 14, "Verify", "re-diff")
+    assert x == W - 18, x  # the row fills the card exactly
+
+    ledger = "every decision lands in a hash-chained ledger in DynamoDB, its head anchored out of band"
+    label = ("Agentic NetOps incident loop: detect from CloudTrail, prove the drift against the baseline, "
+             "measure reachability, plan a policy-gated repair, route it by risk tier (low runs after a 60 s veto, "
+             "medium needs one approval, high needs two approvers), execute with scoped STS credentials, "
+             "verify by re-diffing. Every decision lands in a hash-chained ledger.")
+    return (
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
+        f'role="img" aria-label="{label}"><title>{label}</title><style>{NETOPS_CSS}</style>'
+        '<defs><marker id="ah" viewBox="0 0 8 8" refX="8" refY="4" markerWidth="7" markerHeight="7" '
+        'markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L8 4L0 8z" fill="#f6b077"/></marker></defs>'
+        f'<rect width="{W}" height="{H}" rx="12" fill="#2b2336"/>'
+        + "".join(f'<path d="M{tx} {ty + 3}V{R - 3}" class="tick"/>' for tx, ty in ticks)
+        + f'<rect x="18" y="{R}" width="{W - 36}" height="22" rx="11" fill="#231b2b" stroke="#4b3a57"/>'
+        f'<text x="{W // 2}" y="{R + 15}" class="c">{ledger}</text>'
+        + "".join(out)
+        + "</svg>\n"
+    )
 
 
 BADGE_ICONS = {  # shields.io dropped the LinkedIn and AWS logos, so the badges carry these
@@ -418,7 +494,7 @@ if __name__ == "__main__":
         for name, rows in BADGE_ICONS.items():
             print(name, badge_logo(rows))
         sys.exit()
-    for name, draw in (("banner", banner), ("crab", crab)):
+    for name, draw in (("banner", banner), ("crab", crab), ("netops-loop", netops)):
         svg = draw()
         (OUT / f"{name}.svg").write_text(svg, encoding="utf-8", newline="\n")
         print(f"{name}.svg  {len(svg) / 1024:.1f} KB")

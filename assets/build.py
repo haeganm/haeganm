@@ -488,6 +488,17 @@ NETOPS_CSS = (
     ".a{font-size:10px;fill:" + TEXT + ";text-anchor:start}.box{fill:" + PANEL + ";stroke:" + EDGE + "}"
     ".ln{fill:none;stroke:" + CYAN + ";stroke-width:1.5;stroke-linejoin:round}"
     ".tick{stroke:" + EDGE + ";stroke-dasharray:2 3}"
+    ".l{text-anchor:start}.m{text-anchor:middle}.r{text-anchor:end}"  # last, so they win over .k and .a
+)
+NETOPS_LABEL = (
+    "Agentic NetOps incident loop: detect from CloudTrail, prove the drift against the baseline, "
+    "measure reachability, plan a policy-gated repair, route it by risk tier (low runs after a 60 s veto, "
+    "medium needs one approval, high needs two approvers), execute with scoped STS credentials, "
+    "verify by re-diffing. Every decision lands in a hash-chained ledger."
+)
+ARROWHEAD = (
+    '<defs><marker id="ah" viewBox="0 0 8 8" refX="8" refY="4" markerWidth="7" markerHeight="7" '
+    f'markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L8 4L0 8z" fill="{CYAN}"/></marker></defs>'
 )
 
 
@@ -536,19 +547,69 @@ def netops():
     assert x == W - 18, x  # the row fills the card exactly
 
     ledger = "every decision lands in a hash-chained ledger in DynamoDB, its head anchored out of band"
-    label = ("Agentic NetOps incident loop: detect from CloudTrail, prove the drift against the baseline, "
-             "measure reachability, plan a policy-gated repair, route it by risk tier (low runs after a 60 s veto, "
-             "medium needs one approval, high needs two approvers), execute with scoped STS credentials, "
-             "verify by re-diffing. Every decision lands in a hash-chained ledger.")
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
-        f'role="img" aria-label="{label}"><title>{label}</title><style>{NETOPS_CSS}</style>'
-        '<defs><marker id="ah" viewBox="0 0 8 8" refX="8" refY="4" markerWidth="7" markerHeight="7" '
-        f'markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L8 4L0 8z" fill="{CYAN}"/></marker></defs>'
-        f'<rect width="{W}" height="{H}" rx="12" fill="{NIGHT}"/>'
+        f'role="img" aria-label="{NETOPS_LABEL}"><title>{NETOPS_LABEL}</title><style>{NETOPS_CSS}</style>'
+        + ARROWHEAD
+        + f'<rect width="{W}" height="{H}" rx="12" fill="{NIGHT}"/>'
         + "".join(f'<path d="M{tx} {ty + 3}V{R - 3}" class="tick"/>' for tx, ty in ticks)
         + f'<rect x="18" y="{R}" width="{W - 36}" height="22" rx="11" fill="#140d2a" stroke="#3a2a6e"/>'
         f'<text x="{W // 2}" y="{R + 15}" class="c">{ledger}</text>'
+        + "".join(out)
+        + "</svg>\n"
+    )
+
+
+def netops_narrow():
+    """The same loop stacked top to bottom, which the README serves to phones and portrait tablets."""
+    W, x0, bw, bh = 360, 14, 332, 30
+    cx, rail = W // 2, W - 7
+    centres = [x0 + 52 + k * 114 for k in range(3)]  # three 104-wide tier pills, 10 apart
+    out, ticks = [], []
+
+    def box(y, title, caption):
+        out.append(f'<rect x="{x0}" y="{y}" width="{bw}" height="{bh}" rx="6" class="box"/>'
+                   f'<text x="{x0 + 12}" y="{y + 19}" class="t l">{title}</text>'
+                   f'<text x="{x0 + bw - 12}" y="{y + 19}" class="c r">{caption}</text>')
+        ticks.append(y + bh // 2)
+        return y + bh
+
+    def arrow(d):
+        out.append(f'<path d="{d}" class="ln" marker-end="url(#ah)"/>')
+
+    y = 14
+    for title, caption in NETOPS:
+        if y > 14:
+            arrow(f"M{cx} {y + 1}V{y + 13}")
+            y += 14
+        y = box(y, title, caption)
+    split, pills = y + 14, y + 26  # the repair fans out by risk tier, then joins again
+    merge = pills + 40
+    out.append(f'<path d="M{cx} {y + 1}V{split}M{centres[0]} {split}H{centres[-1]}M{centres[0]} {merge}H{centres[-1]}" '
+               f'class="ln"/><text x="{cx + 6}" y="{split - 4}" class="c l">risk tier</text>')
+    for (tier, action, colour), px in zip(TIERS, centres):
+        arrow(f"M{px} {split}V{pills - 1}")
+        out.append(f'<rect x="{px - 52}" y="{pills}" width="104" height="30" rx="8" fill="#1f1442" stroke="{colour}"/>'
+                   f'<text x="{px}" y="{pills + 12}" class="k m" fill="{colour}">{tier}</text>'
+                   f'<text x="{px}" y="{pills + 24}" class="a m">{action}</text>'
+                   f'<path d="M{px} {pills + 31}V{merge}" class="ln"/>')
+    ticks.append(pills + 15)
+    arrow(f"M{cx} {merge}V{merge + 13}")
+    y = box(merge + 14, "Execute", "scoped STS")
+    arrow(f"M{cx} {y + 1}V{y + 13}")
+    y = box(y + 14, "Verify", "re-diff")
+    ledger, H = y + 14, y + 64
+    ticks.append(ledger + 18)
+    return (
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
+        f'role="img" aria-label="{NETOPS_LABEL}"><title>{NETOPS_LABEL}</title><style>{NETOPS_CSS}</style>'
+        + ARROWHEAD
+        + f'<rect width="{W}" height="{H}" rx="12" fill="{NIGHT}"/>'
+        + "".join(f'<path d="M{x0 + bw + 1} {ty}H{rail}" class="tick"/>' for ty in ticks)
+        + f'<path d="M{rail} {ticks[0]}V{ticks[-1]}" class="tick"/>'
+        + f'<rect x="{x0}" y="{ledger}" width="{bw}" height="36" rx="10" fill="#140d2a" stroke="#3a2a6e"/>'
+        f'<text x="{cx}" y="{ledger + 15}" class="c">every decision lands in a hash-chained ledger</text>'
+        f'<text x="{cx}" y="{ledger + 28}" class="c">in DynamoDB, its head anchored out of band</text>'
         + "".join(out)
         + "</svg>\n"
     )
@@ -610,7 +671,7 @@ if __name__ == "__main__":
         for name, rows in BADGE_ICONS.items():
             print(name, badge_logo(rows))
         sys.exit()
-    for name, draw in (("banner", banner), ("crab", crab), ("netops-loop", netops)):
+    for name, draw in (("banner", banner), ("crab", crab), ("netops-loop", netops), ("netops-loop-narrow", netops_narrow)):
         svg = draw()
         (OUT / f"{name}.svg").write_text(svg, encoding="utf-8", newline="\n")
         print(f"{name}.svg  {len(svg) / 1024:.1f} KB")

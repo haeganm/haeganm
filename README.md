@@ -28,7 +28,10 @@ Python daily. AWS SAM, Step Functions, Lambda, DynamoDB and IAM. Go for distribu
 
 A serverless platform that heals a VPC when it drifts from declared intent: detect, prove, measure, generate a repair, approve, execute, verify. The LLM proposes and deterministic systems dispose, so control flow runs on config diffs and never on model output. Repairs pass a versioned policy gate and fail-closed autonomy tiers, run under per-incident scoped STS credentials, and land in a hash-chained audit ledger.
 
-<img src="assets/netops-loop.svg" width="840" alt="The incident loop: detect from CloudTrail, prove against the baseline, measure reachability, plan a policy-gated repair, route it by risk tier (low runs after a 60 s veto, medium needs one approval, high needs two), execute with scoped STS credentials, verify by re-diffing. Every decision lands in a hash-chained ledger.">
+<picture>
+  <source media="(max-width: 900px)" srcset="https://raw.githubusercontent.com/haeganm/haeganm/main/assets/netops-loop-narrow.svg">
+  <img src="assets/netops-loop.svg" width="840" alt="The incident loop: detect from CloudTrail, prove against the baseline, measure reachability, plan a policy-gated repair, route it by risk tier (low runs after a 60 s veto, medium needs one approval, high needs two), execute with scoped STS credentials, verify by re-diffing. Every decision lands in a hash-chained ledger.">
+</picture>
 
 - Self-healed a seeded fault in 191 s on the live deployment with no human touch. All 9 seeded fault classes remediate.
 - 301 tests in credential-free CI, 18 architecture decision records, a security findings register, $0 idle.
@@ -45,7 +48,10 @@ Three Go nodes each take in ADS-B reports for their own coverage area and keep a
 - Deployed with Terraform for a 10-minute run on AWS: 2.1 s p95 through API Gateway, Lambda and DynamoDB, for under half a cent.
 - 97 Go tests, fuzzing, a seeded fault simulation, 131 planted bugs the gate has to catch, and Trivy on the images and the Terraform.
 
-<img src="assets/holdfast-partition.png" width="840" alt="Per-node lag during a network partition: it grows while node c is cut off and clears 1.2 s after the heal.">
+<picture>
+  <source media="(max-width: 900px)" srcset="https://raw.githubusercontent.com/haeganm/haeganm/main/assets/holdfast-partition-narrow.png">
+  <img src="assets/holdfast-partition.png" width="840" alt="Per-node lag during a network partition: it grows while node c is cut off and clears 1.2 s after the heal.">
+</picture>
 
 <img src="assets/chips/go.svg" height="20" alt="Go"> <img src="assets/chips/docker.svg" height="20" alt="Docker"> <img src="assets/chips/tc-netem.svg" height="20" alt="tc netem"> <img src="assets/chips/lambda.svg" height="20" alt="Lambda"> <img src="assets/chips/dynamodb.svg" height="20" alt="DynamoDB"> <img src="assets/chips/api-gateway.svg" height="20" alt="API Gateway"> <img src="assets/chips/terraform.svg" height="20" alt="Terraform"> <img src="assets/chips/github-actions.svg" height="20" alt="GitHub Actions">
 

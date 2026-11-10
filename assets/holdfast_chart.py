@@ -6,8 +6,10 @@
 The rows and plot calls are those of timeline() in holdfast's harness/plot.py.
 Only the colours, the height, the resolution and the rounded corners change. The polls it reads
 come from `python -I harness/run.py --reanalyze results/sweep-sync` in a holdfast
-checkout. --original draws holdfast's own colours and size instead, which should
-match its committed docs/partition-timeline.png pixel for pixel.
+checkout. --narrow draws the phone-sized copy the README serves below 900 px: same
+rows and calls, with the title and labels wrapped onto two lines. --original draws
+holdfast's own colours and size instead, which should match its committed
+docs/partition-timeline.png pixel for pixel.
 """
 import argparse
 import csv
@@ -31,7 +33,7 @@ def rows(path):
         return list(csv.DictReader(f))
 
 
-def draw(sync_dir, out, pal, size, dpi):
+def draw(sync_dir, out, pal, size, dpi, wrap=False):
     plt.rcParams.update({
         "figure.facecolor": pal["surface"], "axes.facecolor": pal["surface"], "savefig.facecolor": pal["surface"],
         "axes.edgecolor": pal["grid"], "axes.labelcolor": pal["ink2"], "xtick.color": pal["ink2"],
@@ -52,10 +54,12 @@ def draw(sync_dir, out, pal, size, dpi):
         ax.plot(xs, ys, color=color, lw=2, drawstyle="steps-post", label=f"node {node}")
     end = float(summary["duration_ms"]) / 1000
     ax.axvline(end, color=pal["ink2"], lw=0.8, ls=":")
-    ax.text(end, 0.97, " ingest stops", transform=ax.get_xaxis_transform(), va="top", color=pal["ink2"])
+    ax.text(end, 0.97, " ingest\n stops" if wrap else " ingest stops", transform=ax.get_xaxis_transform(),
+            va="top", color=pal["ink2"])
     ax.set_xlabel("seconds since the trace started")
-    ax.set_ylabel("p95 lag behind the freshest report (s)")
-    ax.set_title("Lag grows 1 s per second of the cut and clears 1.2 s after the heal")
+    gap = "\n" if wrap else " "
+    ax.set_ylabel(f"p95 lag behind the{gap}freshest report (s)")
+    ax.set_title(f"Lag grows 1 s per second of the cut{gap}and clears 1.2 s after the heal")
     ax.legend(loc="upper left")
     fig.tight_layout()
     fig.savefig(out, dpi=dpi)
@@ -73,12 +77,20 @@ def round_corners(path, radius):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("sync_dir", type=Path)
-    ap.add_argument("--out", type=Path, default=Path(__file__).parent / "holdfast-partition.png")
-    ap.add_argument("--original", action="store_true", help="holdfast's own colours and size")
+    ap.add_argument("--out", type=Path)
+    ap.add_argument("--narrow", action="store_true", help="the phone-sized copy")
+    ap.add_argument("--original", action="store_true", help="holdfast's own colours and size; needs --out")
     args = ap.parse_args()
     if args.original:
+        if not args.out:
+            ap.error("--original needs --out, so it never overwrites the page's chart")
         draw(args.sync_dir, args.out, HOLDFAST, (8, 4), 150)
     else:
-        draw(args.sync_dir, args.out, PAGE, (8, 3.6), 210)
+        name = "holdfast-partition-narrow.png" if args.narrow else "holdfast-partition.png"
+        args.out = args.out or Path(__file__).parent / name
+        if args.narrow:
+            draw(args.sync_dir, args.out, PAGE, (4.6, 3.9), 210, wrap=True)
+        else:
+            draw(args.sync_dir, args.out, PAGE, (8, 3.6), 210)
         round_corners(args.out, 24)
     print(f"wrote {args.out}")

@@ -13,7 +13,7 @@ Looking for a 2027 software engineering internship.
 
 ## What I do
 
-I build systems end to end, deploy them on AWS, test them, and write down what the numbers actually say. The numbers on this page come from test runs, live measurements and merged PRs.
+I build systems end to end, deploy the cloud ones on AWS, test them, and write down what the numbers actually say. The numbers on this page come from test runs, live measurements and merged PRs.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=py%2Cgo%2Cc%2Cts%2Caws%2Cdynamodb%2Cterraform%2Cdocker%2Cgithubactions%2Clinux%2Cbash&theme=dark">
@@ -38,7 +38,7 @@ A serverless platform that heals a VPC when it drifts from declared intent: dete
 
 ### [holdfast](https://github.com/haeganm/holdfast): edge nodes that keep one aircraft picture through packet loss and partitions
 
-Three Go nodes each take in ADS-B reports for their own coverage area and keep a replica of the shared picture as a CRDT, a last-writer-wins map stamped with a hybrid logical clock. They sync peer to peer by digest anti-entropy, so replicas converge however messages are lost, repeated or reordered. A cloud peer runs the node's own merge code in a Go Lambda on DynamoDB.
+Three Go nodes each take in ADS-B reports for their own coverage area and keep a replica of the shared picture as a CRDT, a last-writer-wins map stamped with a hybrid logical clock. They sync peer to peer by digest anti-entropy, so replicas converge whatever order messages arrive in and however often they are lost or repeated, as long as sync rounds eventually get through and clocks stay within the 5 s drift bound. A cloud peer runs the node's own merge code in a Go Lambda on DynamoDB.
 
 - Replaying a recorded hour of real traffic over Washington DC under 20% packet loss (Docker and `tc netem`): 1.37 s p95 propagation, all 60 windows converged.
 - With one node's clock 4 s fast, a wall-clock map threw away 485 fresh reports. The hybrid clock lost none.
@@ -81,7 +81,7 @@ Eight fixes merged upstream:
 | pandas_market_calendars | [#485](https://github.com/rsheftel/pandas_market_calendars/pull/485) | TASE calendar updated for the Monday to Friday trading week |
 | anndata | [#2652](https://github.com/scverse/anndata/pull/2652) | Raise on float index arrays with any non-integer value |
 | scikit-bio | [#2580](https://github.com/scikit-bio/scikit-bio/pull/2580) | `to_indices` and `to_cigar` on single-segment alignment paths |
-| PyLabRobot | [#1273](https://github.com/PyLabRobot/pylabrobot/pull/1273) | Serialize `Container.no_go_zones` so `copy()` and `deserialize()` keep them |
+| pylabrobot | [#1273](https://github.com/PyLabRobot/pylabrobot/pull/1273) | Serialize `Container.no_go_zones` so `copy()` and `deserialize()` keep them |
 | biotite | [#946](https://github.com/biotite-dev/biotite/pull/946) | `CONECT` records for bonds between residues differing in insertion code |
 
 Open now, all in cloud tooling: [aws-cdk #39647](https://github.com/aws/aws-cdk/pull/39647), [powertools-lambda-python #8772](https://github.com/aws-powertools/powertools-lambda-python/pull/8772), [cloud-custodian #11301](https://github.com/cloud-custodian/cloud-custodian/pull/11301), [s3fs #1088](https://github.com/fsspec/s3fs/pull/1088).
@@ -90,9 +90,9 @@ Open now, all in cloud tooling: [aws-cdk #39647](https://github.com/aws/aws-cdk/
 
 Three systems for testing trading ideas against real markets. Each README reports what the measurements showed.
 
-- **[alphaos](https://github.com/haeganm/alphaos):** a $0 point-in-time research lab with declarative hypothesis specs, an append-only trial ledger and Deflated Sharpe. 34 pre-registered hypotheses across 8 campaigns. 107 tests.
-- **[technical-engine](https://github.com/haeganm/technical-engine):** an always-on intraday scanner across 506 tickers with Discord alerts, a journal and a look-ahead-safe backtest, measured over 60 live sessions. 99 tests.
-- **[density-desk](https://github.com/haeganm/density-desk):** an autonomous trading desk for prediction markets with hard risk rails and pre-registered deployment gates. 112 tests.
+- **[AlphaOS](https://github.com/haeganm/alphaos):** a $0 point-in-time research lab with declarative hypothesis specs, an append-only trial ledger and Deflated Sharpe. 34 pre-registered hypotheses across 8 campaigns. 107 tests.
+- **[TechnicalEngine](https://github.com/haeganm/technical-engine):** an always-on intraday scanner across 506 tickers with Discord alerts, a journal and a look-ahead-safe backtest, measured over 60 live sessions. 99 tests.
+- **[Density Desk](https://github.com/haeganm/density-desk):** an autonomous trading desk for prediction markets with hard risk rails and pre-registered deployment gates. 112 tests.
 
 And four public games on Roblox, written in Luau and shipped to real players. [Roblox profile](https://www.roblox.com/users/9068682769/profile).
 

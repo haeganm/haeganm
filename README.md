@@ -22,28 +22,42 @@ I build systems end to end, deploy them on AWS, test them, and write down what t
 
 Python daily. AWS SAM, Step Functions, Lambda, DynamoDB and IAM. Go for distributed systems, C when speed matters. Terraform, Docker and GitHub Actions to ship it.
 
-## <img src="assets/cat-sit.svg" height="36" align="right" alt=""> Featured
+## <img src="assets/crab.svg" height="36" align="right" alt=""> Featured
 
 ### [Agentic NetOps](https://github.com/haeganm/agentic-netops): closed-loop network remediation on AWS
 
 A serverless platform that heals a VPC when it drifts from declared intent: detect, prove, measure, generate a repair, approve, execute, verify. The LLM proposes and deterministic systems dispose, so control flow runs on config diffs and never on model output. Repairs pass a versioned policy gate and fail-closed autonomy tiers, run under per-incident scoped STS credentials, and land in a hash-chained audit ledger.
 
+```mermaid
+flowchart LR
+    D[Detect<br/>CloudTrail + EventBridge] --> P[Prove<br/>baseline diff] --> M[Measure<br/>drift + reachability] --> G[Generate repair<br/>policy gate] --> T{Risk tier}
+    T -->|low| V[Veto window]
+    T -->|medium| A1[One approval]
+    T -->|high| A2[Two approvers]
+    V --> E[Execute<br/>scoped STS]
+    A1 --> E
+    A2 --> E
+    E --> F[Verify<br/>re-diff]
+```
+
 - Self-healed a seeded fault in 191 s on the live deployment with no human touch. All 9 seeded fault classes remediate.
 - 301 tests in credential-free CI, 18 architecture decision records, a security findings register, $0 idle.
 - Source is private. Happy to demo it or walk through the code, just [email me](mailto:haeganm@gmail.com).
 
-`AWS SAM` `Step Functions` `Lambda` `DynamoDB` `EventBridge` `Cognito` `Bedrock` `IAM` `CloudFront`
+<code><img src="assets/icons/aws.svg" height="14" align="absmiddle" alt="">&nbsp;AWS&nbsp;SAM</code> <code><img src="assets/icons/stepfunctions.svg" height="14" align="absmiddle" alt="">&nbsp;Step&nbsp;Functions</code> <code><img src="assets/icons/lambda.svg" height="14" align="absmiddle" alt="">&nbsp;Lambda</code> <code><img src="assets/icons/dynamodb.svg" height="14" align="absmiddle" alt="">&nbsp;DynamoDB</code> <code><img src="assets/icons/eventbridge.svg" height="14" align="absmiddle" alt="">&nbsp;EventBridge</code> <code><img src="assets/icons/cognito.svg" height="14" align="absmiddle" alt="">&nbsp;Cognito</code> <code><img src="assets/icons/bedrock.svg" height="14" align="absmiddle" alt="">&nbsp;Bedrock</code> <code><img src="assets/icons/iam.svg" height="14" align="absmiddle" alt="">&nbsp;IAM</code> <code><img src="assets/icons/cloudfront.svg" height="14" align="absmiddle" alt="">&nbsp;CloudFront</code>
 
 ### [holdfast](https://github.com/haeganm/holdfast): edge nodes that keep one aircraft picture through packet loss and partitions
 
-Three Go nodes each take in ADS-B reports for their own coverage area and keep a replica of the shared picture as a last-writer-wins map stamped with a hybrid logical clock. They sync peer to peer by digest anti-entropy, so replicas converge however messages are lost, repeated or reordered. A cloud peer runs the node's own merge code in a Go Lambda on DynamoDB.
+Three Go nodes each take in ADS-B reports for their own coverage area and keep a replica of the shared picture as a CRDT, a last-writer-wins map stamped with a hybrid logical clock. They sync peer to peer by digest anti-entropy, so replicas converge however messages are lost, repeated or reordered. A cloud peer runs the node's own merge code in a Go Lambda on DynamoDB.
 
-- Replaying a recorded hour of real traffic over Washington DC under 20% packet loss: 1.37 s p95 propagation, all 60 windows converged.
+- Replaying a recorded hour of real traffic over Washington DC under 20% packet loss (Docker and `tc netem`): 1.37 s p95 propagation, all 60 windows converged.
 - With one node's clock 4 s fast, a wall-clock map threw away 485 fresh reports. The hybrid clock lost none.
 - Deployed with Terraform for a 10-minute run on AWS: 2.1 s p95 through API Gateway, Lambda and DynamoDB, for under half a cent.
 - 97 Go tests, fuzzing, a seeded fault simulation, 131 planted bugs the gate has to catch, and Trivy on the images and the Terraform.
 
-`Go` `CRDTs` `Docker` `tc netem` `Lambda` `DynamoDB` `Terraform` `GitHub Actions`
+<p align="center"><img src="assets/holdfast-partition.png" width="620" alt="Per-node lag during a network partition: it grows while node c is cut off and clears 1.2 s after the heal."></p>
+
+<code><img src="assets/icons/go.svg" height="14" align="absmiddle" alt="">&nbsp;Go</code> <code><img src="assets/icons/docker.svg" height="14" align="absmiddle" alt="">&nbsp;Docker</code> <code><img src="assets/icons/linux.svg" height="14" align="absmiddle" alt="">&nbsp;tc&nbsp;netem</code> <code><img src="assets/icons/lambda.svg" height="14" align="absmiddle" alt="">&nbsp;Lambda</code> <code><img src="assets/icons/dynamodb.svg" height="14" align="absmiddle" alt="">&nbsp;DynamoDB</code> <code><img src="assets/icons/apigateway.svg" height="14" align="absmiddle" alt="">&nbsp;API&nbsp;Gateway</code> <code><img src="assets/icons/terraform.svg" height="14" align="absmiddle" alt="">&nbsp;Terraform</code> <code><img src="assets/icons/githubactions.svg" height="14" align="absmiddle" alt="">&nbsp;GitHub&nbsp;Actions</code>
 
 ### [walkforward](https://github.com/haeganm/walkforward): volatility, sizing and purged walk-forward splits in C11, with a Python front door
 
@@ -51,19 +65,19 @@ Three Go nodes each take in ADS-B reports for their own coverage area and keep a
 
 GARCH(1,1), EWMA and range-based volatility, Kelly and vol-target sizing, purged walk-forward splits and ridge regression, written from scratch in C11 with a ctypes binding over numpy and pandas. A 12-job CI matrix runs gcc, clang, macOS, Windows, 32-bit, sanitizers and a fuzz sweep, then checks the C against pandas, numpy, scikit-learn and arch. Wheels for five platforms ship through cibuildwheel and PyPI trusted publishing, with no token anywhere.
 
-`C11` `CMake` `ctypes` `cibuildwheel` `GitHub Actions` `PyPI trusted publishing`
+<code><img src="assets/icons/c.svg" height="14" align="absmiddle" alt="">&nbsp;C11</code> <code><img src="assets/icons/cmake.svg" height="14" align="absmiddle" alt="">&nbsp;CMake</code> <code><img src="assets/icons/python.svg" height="14" align="absmiddle" alt="">&nbsp;Python&nbsp;ctypes</code> <code><img src="assets/icons/githubactions.svg" height="14" align="absmiddle" alt="">&nbsp;GitHub&nbsp;Actions</code> <code><img src="assets/icons/pypi.svg" height="14" align="absmiddle" alt="">&nbsp;PyPI&nbsp;trusted&nbsp;publishing</code>
 
 ### [AsOf](https://github.com/haeganm/AsOf): a market intelligence engine that grades itself
 
 Collects signals from SEC Form 4 insider buys, 8-K events, your own monitors and any local tool, seals each one at the instant it became public, then grades it against SPY at 5, 20 and 60 trading days. Entry is the close of the first session that ended after the filing's acceptance time, DST-aware. Imported history can never reach the scorecard, and grades are written once and never revised. Runs locally on free, keyless data. 103 offline checks in CI.
 
-`TypeScript` `Next.js` `SQLite` `SEC EDGAR`
+<code><img src="assets/icons/typescript.svg" height="14" align="absmiddle" alt="">&nbsp;TypeScript</code> <code><img src="assets/icons/nextjs.svg" height="14" align="absmiddle" alt="">&nbsp;Next.js</code> <code><img src="assets/icons/sqlite.svg" height="14" align="absmiddle" alt="">&nbsp;SQLite</code> <code><img src="assets/icons/githubactions.svg" height="14" align="absmiddle" alt="">&nbsp;GitHub&nbsp;Actions</code>
 
 ### [Retro](https://github.com/haeganm/retro-spotify-voice-remote): offline voice remote for Spotify
 
 Speech never leaves the machine: Vosk and faster-whisper run locally, your own artists and playlists are injected into the recognizer vocabulary, OAuth PKCE keeps tokens on device, and it ships as a Windows tray app with a one-command installer.
 
-`Python` `Vosk` `faster-whisper` `OAuth PKCE`
+<code><img src="assets/icons/python.svg" height="14" align="absmiddle" alt="">&nbsp;Python</code> <code><img src="assets/icons/spotify.svg" height="14" align="absmiddle" alt="">&nbsp;Spotify&nbsp;Web&nbsp;API</code> <code><img src="assets/icons/oauth.svg" height="14" align="absmiddle" alt="">&nbsp;OAuth&nbsp;PKCE</code> <code><img src="assets/icons/windows.svg" height="14" align="absmiddle" alt="">&nbsp;Windows</code>
 
 ## Open source
 

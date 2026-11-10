@@ -98,22 +98,6 @@ def text(layer, x, y, s, c, scale=2):
                     layer.rect(x + (n * 6 + i) * scale, y + j * scale, scale, scale, c)
 
 
-CAT_BACK = (  # sitting, seen from behind
-    "..K.......K..",
-    ".KOK.....KOK.",
-    ".KOOKKKKKOOK.",
-    ".KOOODDDOOOK.",
-    ".KOOOOOOOOOK.",
-    "..KOOOOOOOK..",
-    ".KOODDODDOOK.",
-    "KOOOOOOOOOOOK",
-    "KODDOOOOODDOK",
-    "KOOOOOOOOOOOK",
-    "KODDOOOOODDOK",
-    ".KKKKKKKKKKK.",
-)
-GINGER = {"K": "#3a2434", "O": "#e58f4f", "D": "#bf6a36"}
-
 CAT_NAP = (  # curled up, head to the left
     "..K...K...........",
     ".KGK.KGK..........",
@@ -384,27 +368,33 @@ def banner():
     return doc(W, H, 3, "Haegan McGarry. A pixel art desk at dusk: rain on the window, a cat asleep on the sill.", css, body)
 
 
-def cat_sit():
-    cat, a, b = Layer(), Layer(), Layer()
-    cat.sprite(0, 0, CAT_BACK, GINGER)
-    k, o = GINGER["K"], GINGER["O"]
-    cat.rect(6, 9, 6, 1, GINGER["D"])
-    cat.rect(12, 9, 5, 1, k)
-    cat.rect(6, 10, 11, 1, o)
-    cat.rect(12, 11, 5, 1, k)
-    cat.put(5, 10, GINGER["D"])
-    cat.put(9, 10, GINGER["D"])
-    cat.put(14, 10, GINGER["D"])
-    a.rect(17, 9, 3, 1, k)
-    a.rect(17, 10, 3, 1, o)
-    a.rect(17, 11, 3, 1, k)
-    a.put(20, 10, k)
-    for p in ((17, 10), (18, 9), (19, 8)):
-        b.put(*p, o)
-    for p in ((17, 9), (18, 8), (19, 7), (20, 8), (19, 9), (18, 10), (17, 11)):
-        b.put(*p, k)
-    body = cat.svg() + a.svg('class="a"') + b.svg('class="b"')
-    return doc(21, 12, 3, "A ginger cat sitting with its back turned, tail flicking.", FRAMES2, body)
+CRAB_SPECS = (  # the desk crab, bigger and wearing glasses
+    ".OOOOOOOOOOOOOO.",
+    ".OOOOOOOOOOOOOO.",
+    ".OGGGGGOOGGGGGO.",
+    "OOGLKLGGGGLKLGO.",
+    "OOGLKLGOOGLKLGO.",
+    ".OGGGGGOOGGGGGO.",
+    ".OOOOOOOOOOOOOO.",
+    ".OOOOOOOOOOOOOO.",
+    ".OOOOOOOOOOOOOO.",
+    ".OO.OO....OO.OO.",
+    ".OO.OO....OO.OO.",
+    ".OO.OO....OO.OO.",
+)
+
+
+def crab():
+    orange, dark, lens = "#d97757", "#2a1b22", "#fbeed8"
+    body, down, up, blink = Layer(), Layer(), Layer(), Layer()
+    body.sprite(0, 0, CRAB_SPECS, {"O": orange, "G": dark, "K": dark, "L": lens})
+    down.rect(15, 3, 1, 2, orange)  # right arm at rest
+    up.rect(15, 1, 1, 2, orange)  # and waving
+    blink.put(4, 3, lens)
+    blink.put(11, 3, lens)
+    css = FRAMES2 + ".blink{opacity:0;animation:blink 5s steps(1) infinite}@keyframes blink{46%{opacity:1}49%{opacity:0}}"
+    parts = body.svg() + down.svg('class="a"') + up.svg('class="b"') + blink.svg('class="blink"')
+    return doc(16, 12, 3, "A small orange crab wearing glasses, waving.", css, parts)
 
 
 BADGE_ICONS = {  # shields.io dropped the LinkedIn and AWS logos, so the badges carry these
@@ -428,7 +418,7 @@ if __name__ == "__main__":
         for name, rows in BADGE_ICONS.items():
             print(name, badge_logo(rows))
         sys.exit()
-    for name, draw in (("banner", banner), ("cat-sit", cat_sit)):
+    for name, draw in (("banner", banner), ("crab", crab)):
         svg = draw()
         (OUT / f"{name}.svg").write_text(svg, encoding="utf-8", newline="\n")
         print(f"{name}.svg  {len(svg) / 1024:.1f} KB")

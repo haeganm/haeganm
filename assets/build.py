@@ -379,8 +379,6 @@ def banner():
     fg.sprite(108, 60, ("WWWWWWS..", "WWWWWWSHH", "WWWWWWS.H", "WWWWWWSHH", "WWWWWWS..", ".WWWWS..."),
               {"W": "#2a1f5c", "S": "#1c1545", "H": "#2a1f5c"})
     fg.rect(108, 60, 6, 1, "#3d3080")
-    for p in ((110, 61), (112, 61), (111, 62), (111, 63)):  # a little pink palm on the mug
-        fg.put(*p, PINK)
     steam = [Layer(), Layer(), Layer()]
     wisps = (
         ((111, 58), (112, 57), (111, 56), (110, 55), (111, 54)),

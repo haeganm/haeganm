@@ -1,13 +1,13 @@
 <div align="center">
 
-<img src="assets/banner.svg" width="840" alt="Haegan McGarry. Pixel art of a desk at dusk: rain on the window, a cat asleep on the sill.">
+<img src="assets/banner.svg" width="840" alt="Haegan McGarry in pink neon. Pixel art of a desk at night by the bay: city lights on the water, a cat asleep on the sill and the Claude crab in sunglasses.">
 
 **CS student building cloud and distributed systems, and measuring them honestly.**<br>
 Looking for a 2027 software engineering internship.
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Haegan_McGarry-4b3049?style=flat-square&labelColor=2b2336&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3IDciIHNoYXBlLXJlbmRlcmluZz0iY3Jpc3BFZGdlcyI%2BPHBhdGggZmlsbD0iI2Y2YjA3NyIgZD0iTTAgMGgxdjFoLTF6TTAgMmgxdjVoLTF6TTIgMmgzdjFoLTN6TTIgM2gxdjRoLTF6TTUgM2gxdjRoLTF6Ii8%2BPC9zdmc%2B)](https://www.linkedin.com/in/haegan-mcgarry-90aa43392)
-[![Email](https://img.shields.io/badge/Email-haeganm%40gmail.com-4b3049?style=flat-square&labelColor=2b2336&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5IDciIHNoYXBlLXJlbmRlcmluZz0iY3Jpc3BFZGdlcyI%2BPHBhdGggZmlsbD0iI2Y2YjA3NyIgZD0iTTAgMGg5djFoLTl6TTAgMWgydjFoLTJ6TTcgMWgydjFoLTJ6TTAgMmgxdjVoLTF6TTIgMmgxdjFoLTF6TTYgMmgxdjFoLTF6TTggMmgxdjVoLTF6TTMgM2gxdjFoLTF6TTUgM2gxdjFoLTF6TTQgNGgxdjFoLTF6TTEgNmg3djFoLTd6Ii8%2BPC9zdmc%2B)](mailto:haeganm@gmail.com)
-![AWS Certified Cloud Practitioner](https://img.shields.io/badge/AWS-Certified_Cloud_Practitioner-4b3049?style=flat-square&labelColor=2b2336&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5IDYiIHNoYXBlLXJlbmRlcmluZz0iY3Jpc3BFZGdlcyI%2BPHBhdGggZmlsbD0iI2Y2YjA3NyIgZD0iTTMgMGgzdjZoLTN6TTIgMWgxdjVoLTF6TTYgMWgxdjVoLTF6TTEgMmgxdjRoLTF6TTcgMmgydjNoLTJ6TTAgM2gxdjJoLTF6TTcgNWgxdjFoLTF6Ii8%2BPC9zdmc%2B)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Haegan_McGarry-35206a?style=flat-square&labelColor=1b1236&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3IDciIHNoYXBlLXJlbmRlcmluZz0iY3Jpc3BFZGdlcyI%2BPHBhdGggZmlsbD0iI2ZmNWFkOSIgZD0iTTAgMGgxdjFoLTF6TTAgMmgxdjVoLTF6TTIgMmgzdjFoLTN6TTIgM2gxdjRoLTF6TTUgM2gxdjRoLTF6Ii8%2BPC9zdmc%2B)](https://www.linkedin.com/in/haegan-mcgarry-90aa43392)
+[![Email](https://img.shields.io/badge/Email-haeganm%40gmail.com-35206a?style=flat-square&labelColor=1b1236&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5IDciIHNoYXBlLXJlbmRlcmluZz0iY3Jpc3BFZGdlcyI%2BPHBhdGggZmlsbD0iI2ZmNWFkOSIgZD0iTTAgMGg5djFoLTl6TTAgMWgydjFoLTJ6TTcgMWgydjFoLTJ6TTAgMmgxdjVoLTF6TTIgMmgxdjFoLTF6TTYgMmgxdjFoLTF6TTggMmgxdjVoLTF6TTMgM2gxdjFoLTF6TTUgM2gxdjFoLTF6TTQgNGgxdjFoLTF6TTEgNmg3djFoLTd6Ii8%2BPC9zdmc%2B)](mailto:haeganm@gmail.com)
+![AWS Certified Cloud Practitioner](https://img.shields.io/badge/AWS-Certified_Cloud_Practitioner-35206a?style=flat-square&labelColor=1b1236&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5IDYiIHNoYXBlLXJlbmRlcmluZz0iY3Jpc3BFZGdlcyI%2BPHBhdGggZmlsbD0iI2ZmNWFkOSIgZD0iTTMgMGgzdjZoLTN6TTIgMWgxdjVoLTF6TTYgMWgxdjVoLTF6TTEgMmgxdjRoLTF6TTcgMmgydjNoLTJ6TTAgM2gxdjJoLTF6TTcgNWgxdjFoLTF6Ii8%2BPC9zdmc%2B)
 
 </div>
 
@@ -34,7 +34,7 @@ A serverless platform that heals a VPC when it drifts from declared intent: dete
 - 301 tests in credential-free CI, 18 architecture decision records, a security findings register, $0 idle.
 - Source is private. Happy to demo it or walk through the code, just [email me](mailto:haeganm@gmail.com).
 
-<code><img src="assets/icons/aws.svg" height="14" align="absmiddle" alt="">&nbsp;AWS&nbsp;SAM</code> <code><img src="assets/icons/stepfunctions.svg" height="14" align="absmiddle" alt="">&nbsp;Step&nbsp;Functions</code> <code><img src="assets/icons/lambda.svg" height="14" align="absmiddle" alt="">&nbsp;Lambda</code> <code><img src="assets/icons/dynamodb.svg" height="14" align="absmiddle" alt="">&nbsp;DynamoDB</code> <code><img src="assets/icons/eventbridge.svg" height="14" align="absmiddle" alt="">&nbsp;EventBridge</code> <code><img src="assets/icons/cognito.svg" height="14" align="absmiddle" alt="">&nbsp;Cognito</code> <code><img src="assets/icons/bedrock.svg" height="14" align="absmiddle" alt="">&nbsp;Bedrock</code> <code><img src="assets/icons/iam.svg" height="14" align="absmiddle" alt="">&nbsp;IAM</code> <code><img src="assets/icons/cloudfront.svg" height="14" align="absmiddle" alt="">&nbsp;CloudFront</code>
+<img src="assets/chips/aws-sam.svg" height="20" alt="AWS SAM"> <img src="assets/chips/step-functions.svg" height="20" alt="Step Functions"> <img src="assets/chips/lambda.svg" height="20" alt="Lambda"> <img src="assets/chips/dynamodb.svg" height="20" alt="DynamoDB"> <img src="assets/chips/eventbridge.svg" height="20" alt="EventBridge"> <img src="assets/chips/cognito.svg" height="20" alt="Cognito"> <img src="assets/chips/bedrock.svg" height="20" alt="Bedrock"> <img src="assets/chips/iam.svg" height="20" alt="IAM"> <img src="assets/chips/cloudfront.svg" height="20" alt="CloudFront">
 
 ### [holdfast](https://github.com/haeganm/holdfast): edge nodes that keep one aircraft picture through packet loss and partitions
 
@@ -47,27 +47,27 @@ Three Go nodes each take in ADS-B reports for their own coverage area and keep a
 
 <img src="assets/holdfast-partition.png" width="840" alt="Per-node lag during a network partition: it grows while node c is cut off and clears 1.2 s after the heal.">
 
-<code><img src="assets/icons/go.svg" height="14" align="absmiddle" alt="">&nbsp;Go</code> <code><img src="assets/icons/docker.svg" height="14" align="absmiddle" alt="">&nbsp;Docker</code> <code><img src="assets/icons/linux.svg" height="14" align="absmiddle" alt="">&nbsp;tc&nbsp;netem</code> <code><img src="assets/icons/lambda.svg" height="14" align="absmiddle" alt="">&nbsp;Lambda</code> <code><img src="assets/icons/dynamodb.svg" height="14" align="absmiddle" alt="">&nbsp;DynamoDB</code> <code><img src="assets/icons/apigateway.svg" height="14" align="absmiddle" alt="">&nbsp;API&nbsp;Gateway</code> <code><img src="assets/icons/terraform.svg" height="14" align="absmiddle" alt="">&nbsp;Terraform</code> <code><img src="assets/icons/githubactions.svg" height="14" align="absmiddle" alt="">&nbsp;GitHub&nbsp;Actions</code>
+<img src="assets/chips/go.svg" height="20" alt="Go"> <img src="assets/chips/docker.svg" height="20" alt="Docker"> <img src="assets/chips/tc-netem.svg" height="20" alt="tc netem"> <img src="assets/chips/lambda.svg" height="20" alt="Lambda"> <img src="assets/chips/dynamodb.svg" height="20" alt="DynamoDB"> <img src="assets/chips/api-gateway.svg" height="20" alt="API Gateway"> <img src="assets/chips/terraform.svg" height="20" alt="Terraform"> <img src="assets/chips/github-actions.svg" height="20" alt="GitHub Actions">
 
 ### [walkforward](https://github.com/haeganm/walkforward): volatility, sizing and purged walk-forward splits in C11, with a Python front door
 
-[![PyPI](https://img.shields.io/pypi/v/walkforward?style=flat-square&labelColor=2b2336&color=4b3049)](https://pypi.org/project/walkforward/) `pip install walkforward`
+[![PyPI](https://img.shields.io/pypi/v/walkforward?style=flat-square&labelColor=1b1236&color=35206a)](https://pypi.org/project/walkforward/) `pip install walkforward`
 
 GARCH(1,1), EWMA and range-based volatility, Kelly and vol-target sizing, purged walk-forward splits and ridge regression, written from scratch in C11 with a ctypes binding over numpy and pandas. A 12-job CI matrix runs gcc, clang, macOS, Windows, 32-bit, sanitizers and a fuzz sweep, then checks the C against pandas, numpy, scikit-learn and arch. Wheels for five platforms ship through cibuildwheel and PyPI trusted publishing, with no token anywhere.
 
-<code><img src="assets/icons/c.svg" height="14" align="absmiddle" alt="">&nbsp;C11</code> <code><img src="assets/icons/cmake.svg" height="14" align="absmiddle" alt="">&nbsp;CMake</code> <code><img src="assets/icons/python.svg" height="14" align="absmiddle" alt="">&nbsp;Python&nbsp;ctypes</code> <code><img src="assets/icons/githubactions.svg" height="14" align="absmiddle" alt="">&nbsp;GitHub&nbsp;Actions</code> <code><img src="assets/icons/pypi.svg" height="14" align="absmiddle" alt="">&nbsp;PyPI&nbsp;trusted&nbsp;publishing</code>
+<img src="assets/chips/c11.svg" height="20" alt="C11"> <img src="assets/chips/cmake.svg" height="20" alt="CMake"> <img src="assets/chips/python-ctypes.svg" height="20" alt="Python ctypes"> <img src="assets/chips/github-actions.svg" height="20" alt="GitHub Actions"> <img src="assets/chips/pypi-trusted-publishing.svg" height="20" alt="PyPI trusted publishing">
 
 ### [AsOf](https://github.com/haeganm/AsOf): a market intelligence engine that grades itself
 
 Collects signals from SEC Form 4 insider buys, 8-K events, your own monitors and any local tool, seals each one at the instant it became public, then grades it against SPY at 5, 20 and 60 trading days. Entry is the close of the first session that ended after the filing's acceptance time, DST-aware. Imported history can never reach the scorecard, and grades are written once and never revised. Runs locally on free, keyless data. 103 offline checks in CI.
 
-<code><img src="assets/icons/typescript.svg" height="14" align="absmiddle" alt="">&nbsp;TypeScript</code> <code><img src="assets/icons/nextjs.svg" height="14" align="absmiddle" alt="">&nbsp;Next.js</code> <code><img src="assets/icons/sqlite.svg" height="14" align="absmiddle" alt="">&nbsp;SQLite</code> <code><img src="assets/icons/githubactions.svg" height="14" align="absmiddle" alt="">&nbsp;GitHub&nbsp;Actions</code>
+<img src="assets/chips/typescript.svg" height="20" alt="TypeScript"> <img src="assets/chips/nextjs.svg" height="20" alt="Next.js"> <img src="assets/chips/sqlite.svg" height="20" alt="SQLite"> <img src="assets/chips/github-actions.svg" height="20" alt="GitHub Actions">
 
 ### [Retro](https://github.com/haeganm/retro-spotify-voice-remote): offline voice remote for Spotify
 
 Speech never leaves the machine: Vosk and faster-whisper run locally, your own artists and playlists are injected into the recognizer vocabulary, OAuth PKCE keeps tokens on device, and it ships as a Windows tray app with a one-command installer.
 
-<code><img src="assets/icons/python.svg" height="14" align="absmiddle" alt="">&nbsp;Python</code> <code><img src="assets/icons/spotify.svg" height="14" align="absmiddle" alt="">&nbsp;Spotify&nbsp;Web&nbsp;API</code> <code><img src="assets/icons/oauth.svg" height="14" align="absmiddle" alt="">&nbsp;OAuth&nbsp;PKCE</code> <code><img src="assets/icons/windows.svg" height="14" align="absmiddle" alt="">&nbsp;Windows</code>
+<img src="assets/chips/python.svg" height="20" alt="Python"> <img src="assets/chips/spotify-web-api.svg" height="20" alt="Spotify Web API"> <img src="assets/chips/oauth-pkce.svg" height="20" alt="OAuth PKCE"> <img src="assets/chips/windows.svg" height="20" alt="Windows">
 
 ## Open source
 

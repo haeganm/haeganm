@@ -22,8 +22,8 @@ from PIL import Image, ImageDraw  # noqa: E402
 RUN = "sync-mesh-partition-hlc-skew0-r0"
 HOLDFAST = {"lines": ("#2a78d6", "#eb6834", "#1baf7a"), "surface": "#fcfcfb", "ink": "#0b0b0b",
             "ink2": "#52514e", "grid": "#e4e3de", "band": "#e4e3de"}
-PAGE = {"lines": ("#b79cf0", "#f6b077", "#7fd6b0"), "surface": "#2b2336", "ink": "#fbeed8",
-        "ink2": "#c9b3d6", "grid": "#3e3350", "band": "#4f3d62"}
+PAGE = {"lines": ("#a98bff", "#ff5ad9", "#5ff3ff"), "surface": "#1b1236", "ink": "#f3ebff",
+        "ink2": "#b8a6e6", "grid": "#33245e", "band": "#3d2a72"}
 
 
 def rows(path):

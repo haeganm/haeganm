@@ -30,7 +30,7 @@ A serverless platform that heals a VPC when it drifts from declared intent: dete
 
 ```mermaid
 flowchart LR
-    D[Detect<br/>CloudTrail + EventBridge] --> P[Prove<br/>baseline diff] --> M[Measure<br/>drift + reachability] --> G[Generate repair<br/>policy gate] --> T{Risk tier}
+    D[Detect<br/>CloudTrail + EventBridge] --> P[Prove and measure<br/>baseline diff, drift, reachability] --> G[Generate repair<br/>policy gate] --> T{Risk tier}
     T -->|low| V[Veto window]
     T -->|medium| A1[One approval]
     T -->|high| A2[Two approvers]
@@ -38,6 +38,8 @@ flowchart LR
     A1 --> E
     A2 --> E
     E --> F[Verify<br/>re-diff]
+    F ~~~ Z[ ]:::ghost
+    classDef ghost fill:none,stroke:none,color:transparent;
 ```
 
 - Self-healed a seeded fault in 191 s on the live deployment with no human touch. All 9 seeded fault classes remediate.

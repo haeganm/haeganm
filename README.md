@@ -78,12 +78,13 @@ Speech never leaves the machine: Vosk and faster-whisper run locally, your own a
 
 ## Open source
 
-Eleven fixes merged upstream:
+Twelve fixes merged upstream:
 
 | Repo | PR | Fix |
 |---|---|---|
 | moto | [#10234](https://github.com/getmoto/moto/pull/10234) | SQS raises `PurgeQueueInProgress` on a repeated purge within 60 s |
 | cloud-custodian | [#11301](https://github.com/cloud-custodian/cloud-custodian/pull/11301) | `copy-related-tag` fetches Resource Groups Tagging API tags in batches of 100 |
+| Powertools for AWS Lambda | [#8772](https://github.com/aws-powertools/powertools-lambda-python/pull/8772) | Logger's `thread_safe_remove_keys` removes a key only for the calling thread or task |
 | prometheus client_python | [#1254](https://github.com/prometheus/client_python/pull/1254) | OpenMetrics 1.0 output drops `_sum` and `_count` for histograms with negative buckets |
 | statsmodels | [#10229](https://github.com/statsmodels/statsmodels/pull/10229) | Probit log-likelihood, score and Hessian computed in log space |
 | nautilus_trader | [#4914](https://github.com/nautechsystems/nautilus_trader/pull/4914) | AroonOscillator lowest-low scan and tie handling |
@@ -94,7 +95,7 @@ Eleven fixes merged upstream:
 | biotite | [#946](https://github.com/biotite-dev/biotite/pull/946) | `CONECT` records for bonds between residues differing in insertion code |
 | black | [#5681](https://github.com/psf/black/pull/5681) | No crash on backslash-only lines in code Black leaves as is |
 
-Open now, all in cloud tooling: [aws-cdk #39647](https://github.com/aws/aws-cdk/pull/39647), [powertools-lambda-python #8772](https://github.com/aws-powertools/powertools-lambda-python/pull/8772) and [s3fs #1088](https://github.com/fsspec/s3fs/pull/1088).
+Open now, both in cloud tooling: [aws-cdk #39647](https://github.com/aws/aws-cdk/pull/39647) and [s3fs #1088](https://github.com/fsspec/s3fs/pull/1088).
 
 ## More builds
 
